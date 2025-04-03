@@ -15,12 +15,6 @@ router.get('/ticker/:ticker', (req, res) => {
   res.json(company);
 });
 
-router.get('/cik/:cik', (req, res) => {
-  const company = companies.find((c) => c.cik === req.params.cik);
-  if (!company) return res.status(404).json({ error: 'Company not found' });
-  res.json(company);
-});
-
 router.get('/exchange/:exchange', (req, res) => {
   const results = companies.filter(
     (c) => c.exchange.toLowerCase() === req.params.exchange.toLowerCase()
